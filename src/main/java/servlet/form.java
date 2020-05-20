@@ -76,6 +76,8 @@ public class form extends HttpServlet {
         out.print("</form>");
         String[] data = input.split(" ");
 
+        out.println("" + data + "");
+
         /* examples:
          * A OR B
          * x && y
