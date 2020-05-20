@@ -13,32 +13,8 @@ import java.lang.*;
 @WebServlet(name = "form", urlPatterns = {"/form"})
 public class form extends HttpServlet {
  
-    
-   /* A recursive algorithm to print a truth table of 1s and 0s.
-    * N is the number of clauses, or columns, in the truth table.
-    * index should be zero on the first call
-    * truthVals starts as an empty array of integers of size N
-    */
-    // public void printTruthTable(int N, int index, int[] truthVals) {
-        
-    //     if (index == N) {
-    //        for (i = 0; i < N; i++)
-    //           print(truthVals[i] + " ");
-    //        print(newline);
-    //     } 
-    //     else {
-    //        for (i = 0; i < 2; i++) {
-    //           truthVals[index] = i;
-    //           printTruthTable(N, index + 1, truthVals);
-    //        }
-    //     }
-    // } 
-
-    //String fname = request.getParameter("fname");
-
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
-        
+             
         String input = request.getParameter("input");
        
         response.setContentType("text/html");
@@ -47,9 +23,6 @@ public class form extends HttpServlet {
         printtable(out, input);
         end(out);
     }
-
-
-
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -65,12 +38,9 @@ public class form extends HttpServlet {
     public void printtable (PrintWriter out, String input) {
 
         out.print("<center><h2>Truth Table</h2></center>\n");
-
         out.print("<body>\n");
-     
         out.print("<p>Please enter a boolean predicate that has boolean variables and logical operators: </p>");
  
-//        out.print("<form method=\"post\"");
         out.print("<form method = \"GET\">");
         out.println("   <td><input type=\"text\" name=\"input\" value=\"" + "\" >");
         out.println("<input type = \"submit\" value = \"submit\"");
@@ -81,25 +51,15 @@ public class form extends HttpServlet {
         ArrayList <String> variables = new ArrayList <String> ();
         ArrayList <String> operators = new ArrayList <String> ();
 
-        String[] or = {"or", "OR", "|"};
-        String[] and = {"and", "AND", "&&"};
-
- 
-
         for (int x = 0; x < data.length; x++) {
             // if even, index (therefore variable)
-            if ((x % 2) == 0) {
+            if ((x % 2) == 0) 
                 variables.add(data[x]);
-            }
             // else, operator
-            else {
+            else 
                 operators.add(data[x]);
-
-            }   
         }
 
-        for (int num = 0; num < variables.size(); num++) 
-   
 
         // if (or.contains(operator[0]))
         //     andop = 0;
@@ -109,18 +69,53 @@ public class form extends HttpServlet {
 
         // else
         //     out.print("invalid input");
-    
+
+     
 
         out.println("<table width=\"50%\" border=\"1\" align=\"center\">");
 
-        for (int num = 0; num < variables.size(); num++) 
-            out.println("<th>" + variables.get(num) + "");   
-   
+        int opcount = 0;
+        String[] or = {"or", "OR", "|"};
+        String[] and = {"and", "AND", "&&"};
+
+
+        // variable headers for each column
+        out.println("<tr> ");
+        for (int num = 0; num < variables.size(); num++) {
+            out.println("<th>" + variables.get(num) + "");
+            if ((num % 2) == 0)
+                out.println("<th>" + operators.get(opcount) + "");
+        }   
+        out.println("</tr>");
+
+        out.println("<tr> ");
+        out.println("<td> TRUE </td>");
+        out.println("<td> TRUE </td>");
+        out.println("</tr>");
+
+        out.println("<tr> ");
+        out.println("<td> TRUE </td>");
+        out.println("<td> FALSE </td>");
+        out.println("</tr>");
+
+        out.println("<tr> ");
+        out.println("<td> FALSE </td>");
+        out.println("<td> TRUE </td>");
+        out.println("</tr>");
+
+        out.println("<tr> ");
+        out.println("<td> FALSE </td>");
+        out.println("<td> FALSE </td>");
+        out.println("</tr>");
+
+
         out.println ("</table>");
         out.print("</body>\n");
 
  
     }
+
+
 
     public void printhead (PrintWriter out) {
         out.print("<html>\n<head>\n\n");
