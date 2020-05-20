@@ -54,7 +54,7 @@ public class form extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         printhead(out);
-        
+        printtables(out, "");
         end(out);
     }
 
