@@ -1,3 +1,5 @@
+package servlet;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -75,6 +77,8 @@ public class form extends HttpServlet {
 
         out.print("</form>");
         String[] data = input.split(" ");
+        for (int x = 0; x < data.length; x++)
+        out.println("<p>" + data[x]  + " </p>"); 
 
         ArrayList <String> variables = new ArrayList <String> ();
         ArrayList <String> operators = new ArrayList <String> ();
@@ -94,8 +98,7 @@ public class form extends HttpServlet {
             else 
                 operators.set(count2++, data[num]);
 
-            out.println("" + data[num] + "");
-        }
+            }
 
         // if (or.contains(operator[0]))
         //     andop = 0;
