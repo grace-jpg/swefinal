@@ -101,7 +101,7 @@ public class form extends HttpServlet {
         }
 
         for (int num = 0; num < variables.size(); num++) 
-        out.println("<p>" + variables.get(num) + "</p>");   
+        out.println("<p>" + variables.size() + "</p>");   
    
 
         // if (or.contains(operator[0]))
