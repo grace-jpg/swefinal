@@ -32,7 +32,7 @@ public class form extends HttpServlet {
     //     }
     // } 
 
-    String fname = request.getParameter("fname");
+    //String fname = request.getParameter("fname");
 
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       
