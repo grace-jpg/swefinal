@@ -77,17 +77,18 @@ public class form extends HttpServlet {
         int opcount = 0;
         String[] or = {"or", "OR", "|"};
         String[] and = {"and", "AND", "&&"};
+        int varcount = 0;
 
 
         // variable headers for each column
         out.println("<tr> ");
         for (int num = 0; num < variables.size(); num++) {
             out.println("<th>" + variables.get(num) + "");
-            if ((num % 1) == 0)
+            varcount++;
+            if ((varcount % 2) == 0)
                 out.println("<th>" + operators.get(opcount) + "");
         }   
         out.println("</tr>");
-        out.println("align=\"center\">");
         out.println("<tr> ");
         out.println("<td> TRUE </td>");
         out.println("<td> TRUE </td>");
