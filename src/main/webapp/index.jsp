@@ -14,7 +14,7 @@
 <p>please enter a boolean: </p>
 <input type="text" id="fname" name="fname" placeholder=""/>
 
-<button onclick="window.location.assign(servletURL+'/hello');">submit</button>
+<button onclick="window.location.assign(servletURL+'/form');">submit</button>
 
 
 </body>
