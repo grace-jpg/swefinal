@@ -81,7 +81,7 @@ public class form extends HttpServlet {
 
         // variable headers for each column
         out.println("<tr> ");
-        for (int num = 0; num < data.length; num++) {
+        for (int num = 0; num < data.length + 1; num++) {
             out.println("<th>" + variables.get(num) + "");
             if (((num % 2) == 0) && (num != 0))
                 out.println("<th>" + operators.get(opcount) + "");
