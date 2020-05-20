@@ -52,8 +52,8 @@ public class form extends HttpServlet {
          * today | tomorrow
          */
 
-        ArrayList <String> variables;
-        ArrayList <String> operators;
+        ArrayList <String> variables = new ArrayList <String> ();
+        ArrayList <String> operators = new ArrayList <String> ();
         // String[] variables = new String[data.length];
         // String[] operators = new String[data.length];
         String[] or = {"or", "OR", "|"};
