@@ -83,11 +83,11 @@ public class form extends HttpServlet {
         out.println("<tr> ");
         for (int num = 0; num < variables.size(); num++) {
             out.println("<th>" + variables.get(num) + "");
-            if ((num % 2) == 0)
+            if (((num % 2) == 0) && (num != 0))
                 out.println("<th>" + operators.get(opcount) + "");
         }   
         out.println("</tr>");
-
+        out.println("align=\"center\">");
         out.println("<tr> ");
         out.println("<td> TRUE </td>");
         out.println("<td> TRUE </td>");
