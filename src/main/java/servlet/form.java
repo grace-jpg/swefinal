@@ -84,24 +84,21 @@ public class form extends HttpServlet {
         String[] or = {"or", "OR", "|"};
         String[] and = {"and", "AND", "&&"};
 
-        int count1 = 0;
-        int count2 = 0;
+ 
 
         for (int x = 0; x < data.length; x++) {
             // if even, index (therefore variable)
-            if (x % 2 == 0) {
-                variables.set(count1, data[x]);
-                count1++;
+            if ((x % 2) == 0) {
+                variables.add(data[x]);
             }
             // else, operator
             else {
-                operators.set(count2, data[x]);
-                count2++;
+                operators.add(data[x]);
+
             }   
         }
 
         for (int num = 0; num < variables.size(); num++) 
-        out.println("<p>" + variables.size() + "</p>");   
    
 
         // if (or.contains(operator[0]))
