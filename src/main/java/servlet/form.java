@@ -38,14 +38,11 @@ public class form extends HttpServlet {
       
         
         String input = request.getParameter("input");
+       
         response.setContentType("text/html");
         PrintWriter out = response.getWriter(); 
         printhead(out);
-
-        //ArrayList s = request.getParameter("input");
-      
         printtable(out, input);
-
         end(out);
     }
 
@@ -63,12 +60,15 @@ public class form extends HttpServlet {
 
     public void printtable (PrintWriter out, String input) {
 
+        out.print("<center><h2>Truth Table</h2></center>\n");
+
         out.print("<body>\n");
      
         out.print("<p>please enter a boolean predicate that has boolean variables </p>");
         out.print("<p> and logical operators: </p>");
  
         out.print("<form method=\"post\"");
+        out.println(" action=\"https://webappfinal.herokuapp.com/form");
         out.println("   <td><input type=\"text\" name=\"input\" value=\"" + input + "\" >");
 
         String[] data = input.split(" ");
@@ -82,8 +82,7 @@ public class form extends HttpServlet {
 
         ArrayList <String> variables = new ArrayList <String> ();
         ArrayList <String> operators = new ArrayList <String> ();
-        // String[] variables = new String[data.length];
-        // String[] operators = new String[data.length];
+
         String[] or = {"or", "OR", "|"};
         String[] and = {"and", "AND", "&&"};
 
@@ -110,7 +109,7 @@ public class form extends HttpServlet {
         //     out.print("invalid input");
     
 
-        out.print("<center><h2>Truth Table</h2></center>\n");
+
         out.println("<table width=\"50%\" border=\"1\" align=\"center\">");
 
         for (int num = 0; num < variables.size(); num++) 
