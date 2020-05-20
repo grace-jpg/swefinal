@@ -86,8 +86,8 @@ public class form extends HttpServlet {
             out.println("<th>" + variables.get(num) + "");
             varcount++;
             if ((varcount % 2) == 0) {
-                out.println(variables.get(varcount - 2));
-                out.println("<th>" + operators.get(opcount) + "");
+                out.println("<th>" + variables.get(varcount - 2));
+                out.println(operators.get(opcount) + "");
                 out.println(variables.get(varcount - 1));
             }
         }   
