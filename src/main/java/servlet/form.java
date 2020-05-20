@@ -43,6 +43,34 @@ public class form extends HttpServlet {
         printhead(out);
 
         //ArrayList s = request.getParameter("input");
+      
+        printtable(out, input);
+
+        end(out);
+    }
+
+
+
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        printhead(out);
+        
+        end(out);
+    }
+
+    public void printtable (PrintWriter out, String input) {
+
+        out.print("<body>\n");
+     
+        out.print("<p>please enter a boolean predicate that has boolean variables </p>");
+        out.print("<p> and logical operators: </p>");
+ 
+        out.print("<form method=\"post\"");
+        out.println("   <td><input type=\"text\" name=\"input\" value=\"" + input + "\" >");
+
         String[] data = input.split(" ");
 
         /* examples:
@@ -81,32 +109,6 @@ public class form extends HttpServlet {
         // else
         //     out.print("invalid input");
     
-        printtable(out, variables, operators);
-
-        end(out);
-    }
-
-
-
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        printhead(out);
-        
-        end(out);
-    }
-
-    public void printtable (PrintWriter out, ArrayList <String> variables, ArrayList <String> operators) {
-
-        out.print("<body>\n");
-     
-        out.print("<p>please enter a boolean predicate that has boolean variables </p>");
-        out.print("<p> and logical operators: </p>");
- 
-        out.print("<form method=\"post\"");
-        out.println("   <td><input type=\"text\" name=\"input\" value=\"" + input + "\" >");
 
         out.print("<center><h2>Truth Table</h2></center>\n");
         out.println("<table width=\"50%\" border=\"1\" align=\"center\">");
