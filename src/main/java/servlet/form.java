@@ -53,8 +53,10 @@ public class form extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        String input = request.getParameter("input");
+
         printhead(out);
-        printtable(out, "");
+        printtable(out, input);
         end(out);
     }
 
@@ -64,13 +66,14 @@ public class form extends HttpServlet {
 
         out.print("<body>\n");
      
-        out.print("<p>please enter a boolean predicate that has boolean variables </p>");
-        out.print("<p> and logical operators: </p>");
+        out.print("<p>Please enter a boolean predicate that has boolean variables and logical operators: </p>");
  
-        out.print("<form method=\"post\"");
-        out.println(" action=\"https://webappfinal.herokuapp.com/form");
+//        out.print("<form method=\"post\"");
+        out.print("<form method = \"GET\">");
         out.println("   <td><input type=\"text\" name=\"input\" value=\"" + input + "\" >");
 
+
+        out.print("</form>");
         String[] data = input.split(" ");
 
         /* examples:
