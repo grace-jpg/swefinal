@@ -100,6 +100,10 @@ public class form extends HttpServlet {
             }   
         }
 
+        for (int num = 0; num < variables.size(); num++) 
+        out.println("<p>" + variables.get(num) + "</p>");   
+   
+
         // if (or.contains(operator[0]))
         //     andop = 0;
 
