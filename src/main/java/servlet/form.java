@@ -118,13 +118,13 @@ public class form extends HttpServlet {
  
     }
 
-    public void printhead (Printwriter out) {
+    public void printhead (PrintWriter out) {
         out.print("<html>\n<head>\n\n");
         out.print("<title>Truth Table</title>\n");
         out.print("</head>\n");
     }
 
-    public void end (Printwriter out) {
+    public void end (PrintWriter out) {
         out.print("</html>");
         out.close ();
     }
