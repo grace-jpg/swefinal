@@ -101,10 +101,12 @@ public class form extends HttpServlet {
     public void printtable (PrintWriter out, ArrayList <String> variables, ArrayList <String> operators) {
 
         out.print("<body>\n");
+     
         out.print("<p>please enter a boolean predicate that has boolean variables </p>");
         out.print("<p> and logical operators: </p>");
  
         out.print("<form method=\"post\"");
+        out.println("   <td><input type=\"text\" name=\"input\" value=\"" + input + "\" >");
 
         out.print("<center><h2>Truth Table</h2></center>\n");
         out.println("<table width=\"50%\" border=\"1\" align=\"center\">");
