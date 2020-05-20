@@ -1,6 +1,7 @@
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import java.io.PrintWriter;
 
 import java.io.*;
 import java.util.*;
@@ -80,10 +81,9 @@ public class form extends HttpServlet {
         // else
         //     out.print("invalid input");
     
-        printtable(variables, operators);
+        printtable(out, variables, operators);
 
-        out.print("</html>");
-        out.close();
+        end(out);
     }
 
 
@@ -95,35 +95,27 @@ public class form extends HttpServlet {
         PrintWriter out = response.getWriter();
         printhead(out);
         
+        end(out);
+    }
+
+    public void printtable (PrintWriter out, ArrayList <String> variables, ArrayList <String> operators) {
+
+        out.print("<body>\n");
         out.print("<p>please enter a boolean predicate that has boolean variables </p>");
         out.print("<p> and logical operators: </p>");
-
-        String input = request.getParameter("input");
-
-        // prints <head>
-    
-        printhead(out);
-        out.print("<body>\n");
+ 
         out.print("<form method=\"post\"");
 
         out.print("<center><h2>Truth Table</h2></center>\n");
-//      out.print("<p>Given predicate: " + fname + "</p>");
-
         out.println("<table width=\"50%\" border=\"1\" align=\"center\">");
 
-        for (int a : count1)
-                out.println("<th> " + variables[a] + "");   
+        for (int num = 0; num < variables.size(); num++) 
+            out.println("<th> " + variables.get(num) + "");   
    
         out.println ("</table>");
         out.print("</body>\n");
 
  
-        out.print("</html>");
-        out.close ();
-    }
-
-    public void printtable (ArrayList <String> variables, ArrayList <String> operators) {
-
     }
 
     public void printhead (Printwriter out) {
@@ -132,5 +124,9 @@ public class form extends HttpServlet {
         out.print("</head>\n");
     }
 
+    public void end (Printwriter out) {
+        out.print("</html>");
+        out.close ();
+    }
 
 }
