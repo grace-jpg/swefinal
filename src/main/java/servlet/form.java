@@ -7,8 +7,6 @@ import java.lang.*;
 
 @WebServlet(name = "form", urlPatterns = {"/form"})
 public class form extends HttpServlet {
-   
-    
     
    /* A recursive algorithm to print a truth table of 1s and 0s.
     * N is the number of clauses, or columns, in the truth table.
@@ -30,7 +28,6 @@ public class form extends HttpServlet {
     //     }
     // } 
 
-    @Override
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       
         // response.setContentType("text/html");
@@ -38,7 +35,7 @@ public class form extends HttpServlet {
     
     }
 
-    @Override
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
