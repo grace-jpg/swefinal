@@ -4,12 +4,13 @@ import javax.servlet.http.*;
 
 import java.io.*;
 import java.util.*;
+import java.util.StringTokenizer;
 import java.lang.*;
 
 @WebServlet(name = "form", urlPatterns = {"/form"})
 public class form extends HttpServlet {
     
-    String fname = request.getParameter("fname");
+ 
     
    /* A recursive algorithm to print a truth table of 1s and 0s.
     * N is the number of clauses, or columns, in the truth table.
@@ -31,11 +32,54 @@ public class form extends HttpServlet {
     //     }
     // } 
 
+    String fname = request.getParameter("fname");
+
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       
-        // response.setContentType("text/html");
-        // PrintWriter out = response.getWriter(); 
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter(); 
+        String s = request.getParameter("input");
+//ArrayList s = request.getParameter("input");
+        String[] data = s.split(" ");
+
+        /* examples:
+         * A OR B
+         * x && y
+         * M and N or Q
+         * today | tomorrow
+         */
+        String[] variables = new String[data.length];
+        String[] operators = new String[data.length];
+        String[] or = {"or", "OR", "|"};
+        String[] and = {"and", "AND", "&&"};
+
+        int count1 = 0;
+        int count2 = 0;
+        int andop;
+
+        for (int num = 0; num < data.length; num++) {
+            // if even, index (therefore variable)
+            if (num % 2 == 0) 
+                variables[count1++] = data[num];
+
+            // else, operator
+            else 
+                operators[count2++] = data[num];
+        }
+
+        if (or.contains(operator[0]))
+            andop = 0;
+
+        else if (and.contains(operator[0]))
+            andop = 1;
+
+        else
+            out.print("invalid input");
     
+
+
+
+        out.close();
     }
 
 
@@ -53,12 +97,14 @@ public class form extends HttpServlet {
         out.print("<form method=\"post\"");
 
         out.print("<center><h2>Truth Table</h2></center>\n");
-        out.print("<p>Given predicate: " + fname + "</p>");
+//        out.print("<p>Given predicate: " + fname + "</p>");
 
 //      String Nm = request.getParameter("predicate");
 
-        out.println("<table border=\"1\" align=\"center\">");
-        out.println("  <th>variables <th>true");
+        out.println("<table width=\"50%\" border=\"1\" align=\"center\">");
+
+        for (int a : count1)
+                out.println("<th> " + variables[a] + "");
 
         // Enumeration headerNames = request.getHeaderNames();
         // while (headerNames.hasMoreElements()) {
@@ -74,5 +120,7 @@ public class form extends HttpServlet {
         out.close ();
 
     }
+
+
 
 }
