@@ -81,13 +81,15 @@ public class form extends HttpServlet {
 
         // variable headers for each column
         out.println("<tr> ");
-        for (int num = 0; num < variables.size(); num++) {
+        for (int num = 0; num < variables.size() + operators.size(); num++) {
             out.println("<th>" + variables.get(num) + "");
             if (((num % 2) == 0) && (num != 0))
                 out.println("<th>" + operators.get(opcount) + "");
         }   
+        
         out.println("</tr>");
-        out.println("align=\"center\">");
+
+        out.println("<center>");
         out.println("<tr> ");
         out.println("<td> TRUE </td>");
         out.println("<td> TRUE </td>");
@@ -108,7 +110,7 @@ public class form extends HttpServlet {
         out.println("<td> FALSE </td>");
         out.println("</tr>");
 
-
+        out.println("</center>");
         out.println ("</table>");
         out.print("</body>\n");
 
