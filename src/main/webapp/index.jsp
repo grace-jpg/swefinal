@@ -11,7 +11,8 @@
 </head>
 <body>
 <h2>Truth Table</h2>
-<p>please enter a boolean: </p>
+<p>please enter a boolean predicate that has boolean variables </p>
+<p> and logical operators: </p>
 <input type="text" id="fname" name="fname" placeholder=""/>
 
 <button onclick="window.location.assign(servletURL+'/form');">submit</button>

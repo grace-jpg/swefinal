@@ -9,6 +9,8 @@ import java.lang.*;
 @WebServlet(name = "form", urlPatterns = {"/form"})
 public class form extends HttpServlet {
     
+    String fname = request.getParameter("fname");
+    
    /* A recursive algorithm to print a truth table of 1s and 0s.
     * N is the number of clauses, or columns, in the truth table.
     * index should be zero on the first call
@@ -44,25 +46,18 @@ public class form extends HttpServlet {
 
         // prints <head>
         out.print("<html>\n<head>\n\n");
-        out.print("<title>enter predicate</title>\n");
+        out.print("<title>Truth Table</title>\n");
         out.print("</head>\n");
 
-        // prompts user to input 
         out.print("<body>\n");
-        out.println("<p>Enter a boolean predicate that has boolean variables");
-        out.println("and logical operators");
-        out.println("</p>");
-        
         out.print("<form method=\"post\"");
 
-
-        out.print("<center><h2>truth table</h2></center>\n");
-        out.print("<hr>\n");
+        out.print("<center><h2>Truth Table</h2></center>\n");
+        out.print("<p>Given predicate: " + fname + "</p>");
 
 //      String Nm = request.getParameter("predicate");
 
         out.println("<table border=\"1\" align=\"center\">");
-        out.println(" <tr bgcolor=\"#ffad00\">");
         out.println("  <th>variables <th>true");
 
         // Enumeration headerNames = request.getHeaderNames();
