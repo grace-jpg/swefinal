@@ -76,15 +76,6 @@ public class form extends HttpServlet {
         out.print("</form>");
         String[] data = input.split(" ");
 
-        out.println("" + data + "");
-
-        /* examples:
-         * A OR B
-         * x && y
-         * M and N or Q
-         * today | tomorrow
-         */
-
         ArrayList <String> variables = new ArrayList <String> ();
         ArrayList <String> operators = new ArrayList <String> ();
 
@@ -102,6 +93,8 @@ public class form extends HttpServlet {
             // else, operator
             else 
                 operators.set(count2++, data[num]);
+
+            out.println("" + data[num] + "");
         }
 
         // if (or.contains(operator[0]))
