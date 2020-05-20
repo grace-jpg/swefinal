@@ -70,8 +70,8 @@ public class form extends HttpServlet {
  
 //        out.print("<form method=\"post\"");
         out.print("<form method = \"GET\">");
-        out.println("   <td><input type=\"text\" name=\"input\" value=\"" + input + "\" >");
-
+        out.println("   <td><input type=\"text\" name=\"input\" value=\"" + "\" >");
+        out.println("<input type = \"submit\" value = \"submit\"");
 
         out.print("</form>");
         String[] data = input.split(" ");
