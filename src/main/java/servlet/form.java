@@ -85,8 +85,11 @@ public class form extends HttpServlet {
         for (int num = 0; num < variables.size(); num++) {
             out.println("<th>" + variables.get(num) + "");
             varcount++;
-            if ((varcount % 2) == 0)
-                out.println("<th>" + variables.get(num-2) + "" + operators.get(opcount) + "" + variables.get(num-1) + "");
+            if ((varcount % 2) == 0) {
+                out.println(variables.get(varcount - 2));
+                out.println("<th>" + operators.get(opcount) + "");
+                out.println(variables.get(varcount - 1));
+            }
         }   
         out.println("</tr>");
         out.println("<tr> ");
