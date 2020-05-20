@@ -77,8 +77,6 @@ public class form extends HttpServlet {
 
         out.print("</form>");
         String[] data = input.split(" ");
-        for (int x = 0; x < data.length; x++)
-        out.println("<p>" + data[x]  + " </p>"); 
 
         ArrayList <String> variables = new ArrayList <String> ();
         ArrayList <String> operators = new ArrayList <String> ();
@@ -89,16 +87,18 @@ public class form extends HttpServlet {
         int count1 = 0;
         int count2 = 0;
 
-        for (int num = 0; num < data.length; num++) {
+        for (int x = 0; x < data.length; x++) {
             // if even, index (therefore variable)
-            if (num % 2 == 0) 
-                variables.set(count1++, data[num]);
-
-            // else, operator
-            else 
-                operators.set(count2++, data[num]);
-
+            if (x % 2 == 0) {
+                variables.set(count1, data[x]);
+                count1++;
             }
+            // else, operator
+            else {
+                operators.set(count2, data[x]);
+                count2++;
+            }   
+        }
 
         // if (or.contains(operator[0]))
         //     andop = 0;
@@ -110,11 +110,10 @@ public class form extends HttpServlet {
         //     out.print("invalid input");
     
 
-
         out.println("<table width=\"50%\" border=\"1\" align=\"center\">");
 
         for (int num = 0; num < variables.size(); num++) 
-            out.println("<th> " + variables.get(num) + "");   
+            out.println("<th>" + variables.get(num) + "");   
    
         out.println ("</table>");
         out.print("</body>\n");
